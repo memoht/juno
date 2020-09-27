@@ -3,3 +3,6 @@
 
 
  + **JunoTweet** > a basic Twitter type app to demonstrate the use of JQuery.
+
+ ### Project Resources
+ + [Avatar Placeholders](https://avatars.dicebear.com)

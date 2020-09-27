@@ -15,10 +15,19 @@ $("#new-tweet").keyup(function() {
 });
 
 $(() => {
+  // var $newdiv = $( "<div class='media pt-3'></div>" );
   $('form').on('submit', function(e) {
     e.preventDefault();
     const newTweet = $('#new-tweet').val();
-    $('#recentTweets').prepend(`<li>${newTweet}</li>`);
+    $('#recentTweets')
+      .prepend(
+        `<div class='media pt-3'>
+            <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+            <strong class="d-block ">${userName}</strong>
+          ${newTweet}
+          </p>
+        </div>`
+        );
     console.log(newTweet)
   });
 });
