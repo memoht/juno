@@ -1,5 +1,6 @@
 const TweeterApp = {};
-const userName = `@` + prompt("Hello. Please enter your username").toLowerCase().trim().replace(/\s/g, '');
+let userName = '@avatarbot';
+// const userName = `@` + prompt("Hello. Please enter your username").toLowerCase().trim().replace(/\s/g, '');
 
 TweeterApp.init = function(){
   console.log(`Hello ${userName}`);
@@ -9,18 +10,29 @@ $(document).ready(function() {
   TweeterApp.init();
 });
 
-
 $("#new-tweet").keyup(function() {
   $(".characterCount").text(this.value.replace(/{.*}/g, "").length);
 });
 
+
+$(() => {
+  $('#user-form').on('submit', function(e) {
+    e.preventDefault();
+    userName = `@` + $('#new-user').val().toLowerCase().trim().replace(/\s/g, '');
+    $('#user-form').hide()
+    console.log(`Welcome ${userName}`)
+    $('#tweet-form').removeClass("d-none")
+  });
+});
+
+
 $(() => {
   // var $newdiv = $( "<div class='media pt-3'></div>" );
-  $('form').on('submit', function(e) {
+  $('#tweet-form').on('submit', function(e) {
     e.preventDefault();
     const newTweet = $('#new-tweet').val();
     $('#recentTweets')
-      .prepend(
+      .append(
         `<div class='media pt-3'>
             <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
             <strong class="d-block ">${userName}</strong>
