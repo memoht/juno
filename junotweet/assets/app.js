@@ -10,3 +10,15 @@ $(document).ready(function() {
 });
 
 
+$("#new-tweet").keyup(function() {
+  $(".characterCount").text(this.value.replace(/{.*}/g, "").length);
+});
+
+$(() => {
+  $('form').on('submit', function(e) {
+    e.preventDefault();
+    const newTweet = $('#new-tweet').val();
+    $('#recentTweets').prepend(`<li>${newTweet}</li>`);
+    console.log(newTweet)
+  });
+});
