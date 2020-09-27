@@ -52,15 +52,29 @@ $(() => {
   });
 });
 
+// $(function() {
+//   let adder = $('.ml-1').val();
+//   $('.fa-heart').on("click", function() {
+//     adder++;
+//     if (adder >= 1) {
+//       $(this).css('color', 'rgb(220, 53, 69)')
+//     }
+//     $(`.ml-1`).text(adder);
+//   });
+// });
+
 $(function() {
-  $('.media').on('click', '.fa-heart', function() {
-    let likes = $(this).find('span.ml-1').val();
-    console.log($(this))
-    // let likes = $('.ml-1').val();
+  $('#recentTweets').on('click', '.media .fa-heart', function() {
+    const $likes = $(this).find('.ml-1');
+    // let likes = $(this).find('span.ml-1').val();
+    let likes = $likes.val()
+    console.log(likes)
     likes++;
     if (likes >= 1) {
       $(this).css('color', 'rgb(220, 53, 69)')
     }
-    $(`.ml-1`).text(likes);
+    // $(`.ml-1`).text(likes);
+    $likes.val(likes);
+    $likes.text($likes.val());
   });
 });
