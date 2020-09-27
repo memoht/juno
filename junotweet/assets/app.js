@@ -22,6 +22,7 @@ $(() => {
     userName = `@` + $('#new-user').val().toLowerCase().trim().replace(/\s/g, '');
     $('#user-form').hide()
     console.log(`Welcome ${userName}`)
+    $('#h1-message').text(`What\u0027s Happening ${userName}?`)
     $('#tweet-form').removeClass("d-none")
   });
 });
