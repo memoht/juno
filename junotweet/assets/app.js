@@ -44,11 +44,13 @@ $(() => {
               <strong class="d-block ">${userName}</strong>
               ${newTweet}
             </p>
-            <i class="fas fa-heart"><span class="ml-1">0</span></i>
+            <i class="fas fa-retweet" data-toggle="tooltip" data-placement="top" title="retweet"><span class="mr-2"></span></i>
+            <i class="fas fa-heart" data-toggle="tooltip" data-placement="top" title="like"><span class="ml-1">0</span></i>
           </div>`
         );
       }
     console.log(newTweet)
+    $('[data-toggle="tooltip"]').tooltip()
   });
 });
 
@@ -63,5 +65,12 @@ $(function() {
     }
     $likes.val(likes);
     $likes.text($likes.val());
+  });
+});
+
+$(() => {
+  $('#recentTweets').on('click', '.media .fa-retweet', function() {
+    const retweet = $(this).find('.fa-retweet');
+    $(this).toggleClass('text-success');
   });
 });
