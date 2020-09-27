@@ -44,9 +44,21 @@ $(() => {
               <strong class="d-block ">${userName}</strong>
               ${newTweet}
             </p>
+            <i class="fas fa-heart"><span class="ml-1">0</span></i>
           </div>`
         );
       }
     console.log(newTweet)
+  });
+});
+
+$(function() {
+  let adder = 0;
+  $('.fa-heart').on("click", function() {
+    adder++;
+    if (adder >= 1) {
+      $('.fa-heart').css('color', 'rgb(220, 53, 69)')
+    }
+    $(`.ml-1`).text(adder);
   });
 });
