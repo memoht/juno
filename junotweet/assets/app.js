@@ -1,5 +1,5 @@
 const TweeterApp = {};
-let userName = '@avatarbot';
+let userName = '@junobot';
 // const userName = `@` + prompt("Hello. Please enter your username").toLowerCase().trim().replace(/\s/g, '');
 
 TweeterApp.init = function(){
@@ -34,9 +34,10 @@ $(() => {
     $('#recentTweets')
       .append(
         `<div class='media pt-3'>
-            <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+          <img src="https://avatars.dicebear.com/api/initials/memoht.svg?r=50&w=64&h=64&backgroundColors[]=brown" class="img-fluid mr-2" alt="${userName}"></img>
+          <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
             <strong class="d-block ">${userName}</strong>
-          ${newTweet}
+            ${newTweet}
           </p>
         </div>`
         );
