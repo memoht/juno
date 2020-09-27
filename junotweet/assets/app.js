@@ -53,12 +53,14 @@ $(() => {
 });
 
 $(function() {
-  let adder = 0;
-  $('.fa-heart').on("click", function() {
-    adder++;
-    if (adder >= 1) {
-      $('.fa-heart').css('color', 'rgb(220, 53, 69)')
+  $('.media').on('click', '.fa-heart', function() {
+    let likes = $(this).find('span.ml-1').val();
+    console.log($(this))
+    // let likes = $('.ml-1').val();
+    likes++;
+    if (likes >= 1) {
+      $(this).css('color', 'rgb(220, 53, 69)')
     }
-    $(`.ml-1`).text(adder);
+    $(`.ml-1`).text(likes);
   });
 });
