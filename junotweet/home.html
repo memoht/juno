@@ -18,7 +18,7 @@
           <form role="form" id="user-form">
             <p class="lead text-muted">Sign up and start tweeting today</p>
             <div class="input-group input-group-lg mb-3">
-              <input type="text" class="form-control" id="new-user" />
+              <input type="text" class="form-control" id="new-user" placeholder="mr_spock"/>
               <div class="input-group-append">
                 <button type="submit" class="btn btn-secondary btn-block">SignUp</button>
               </div>
@@ -26,17 +26,15 @@
           </form>
           <form role="form" id="tweet-form" class='d-none'>
             <div class="input-group input-group-lg mb-3">
-              <input type="text" class="form-control" id="new-tweet" />
+              <input type="text" class="form-control" id="new-tweet" placeholder="Share something with the Junoverse."/>
               <div class="input-group-append">
                 <button type="submit" class="btn btn-secondary btn-block">Tweet</button>
               </div>
             </div>
-          </form>
-          <div class="form-row justify-content-center mt-2">
-            <div class="col-8 text-right">
+            <h4>
               <span class="badge badge-pill badge-info characterCount"></span>
-            </div>
-          </div>
+            </h4>
+          </form>
         </div>
       </div>
       <div class="my-3 p-3 bg-light rounded shadow-sm text-secondary" id="recentTweets">

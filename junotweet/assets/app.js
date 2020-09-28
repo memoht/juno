@@ -33,7 +33,7 @@ $(() => {
   $('#tweet-form').on('submit', function(e) {
     e.preventDefault();
     const newTweet = $('#new-tweet').val();
-    $("#new-tweet").prop('required',true);
+  $("#new-user").prop('required',true);
     if (newTweet !== '') {
       $('#new-tweet').val('');
       $('#recentTweets')
