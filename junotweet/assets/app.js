@@ -4,11 +4,12 @@ let userName = '@junobot';
 
 TweeterApp.init = function(){
   console.log(`Hello ${userName}`);
-  $('input[type="submit"]').attr('disabled', true);
+  // $('input[type="submit"]').attr('disabled', true);
 };
 
 $(document).ready(function() {
   TweeterApp.init();
+  $("#new-user").prop('required',true);
 });
 
 $("#new-tweet").keyup(function() {
@@ -26,7 +27,6 @@ $(() => {
     $('#tweet-form').removeClass("d-none")
   });
 });
-
 
 $(() => {
   // var $newdiv = $( "<div class='media pt-3'></div>" );
