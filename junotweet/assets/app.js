@@ -34,7 +34,7 @@ $(() => {
   $('#tweet-form').on('submit', function(e) {
     e.preventDefault();
     const newTweet = $('#new-tweet').val();
-  $("#new-user").prop('required',true);
+    $("#new-user").prop('required',true);
     if (newTweet !== '') {
       $('#new-tweet').val('');
       $('#recentTweets')
@@ -48,7 +48,7 @@ $(() => {
             <p class="small mr-2 timestamp">${Date($.now())}</p>
             <i class="fas fa-retweet" data-toggle="tooltip" data-placement="top" title="retweet"><span class="mr-2"></span></i>
             <i class="fas fa-heart" data-toggle="tooltip" data-placement="top" title="like"><span class="mr-2">0</span></i>
-            <i class="fas fa-trash"></i>
+            <i class="fas fa-trash ml-2"></i>
             </div>`
         );
       }
@@ -59,7 +59,7 @@ $(() => {
 
 $(function() {
   $('#recentTweets').on('click', '.media .fa-heart', function() {
-    const $likes = $(this).find('.ml-1');
+    const $likes = $(this).closest('.fa-heart');
     let likes = $likes.val()
     console.log(likes)
     likes++;
