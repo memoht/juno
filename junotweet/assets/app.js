@@ -23,8 +23,9 @@ $(() => {
     userName = `@` + $('#new-user').val().toLowerCase().trim().replace(/\s/g, '');
     $('#user-form').hide()
     console.log(`Welcome ${userName}`)
-    $('#h1-message').text(`What\u0027s Happening ${userName}?`)
-    $('#tweet-form').removeClass("d-none")
+    $('#h1-message').text(`What\u0027s happening ${userName}?`)
+    $('#tweet-form').removeClass("d-none");
+    $('#tweets').removeClass("d-none")
   });
 });
 
@@ -84,5 +85,14 @@ $(() => {
     $(tweet).fadeOut( "slow", function() {
       // Animation complete.
     });
+  });
+});
+
+$(() => {
+  $('.media .fa-trash').on("mouseover", function() {
+    $(this).addClass('text-info animate__animated animate__tada');
+  });
+  $('.media .fa-trash').on("mouseout", function() {
+    $(this).removeClass('text-info animate__animated animate__tada');
   });
 });
