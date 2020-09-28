@@ -4,7 +4,6 @@ let userName = '@junobot';
 
 TweeterApp.init = function(){
   console.log(`Hello ${userName}`);
-  // $('input[type="submit"]').attr('disabled', true);
 };
 
 $(document).ready(function() {
@@ -38,7 +37,7 @@ $(() => {
       $('#new-tweet').val('');
       $('#recentTweets')
         .append(
-          `<div class='media pt-3'>
+          `<div class='media pt-3 animate__animated animate__zoomInUp'>
             <img src="https://avatars.dicebear.com/api/initials/${userName}.svg?r=50&w=64&h=64&backgroundColors[]=brown" class="img-fluid mr-2" alt="${userName}"></img>
             <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
               <strong class="d-block ">${userName}</strong>
