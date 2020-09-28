@@ -99,7 +99,9 @@ body {
   font-weight: 700;
 }
 
-
+.timestamp {
+  color: rgb(234, 89, 62);
+}
 /*
  * Footer
  */

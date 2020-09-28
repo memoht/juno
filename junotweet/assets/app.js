@@ -1,5 +1,6 @@
 const TweeterApp = {};
 let userName = '@junobot';
+let timestamp = Date($.now());
 // const userName = `@` + prompt("Hello. Please enter your username").toLowerCase().trim().replace(/\s/g, '');
 
 TweeterApp.init = function(){
@@ -43,9 +44,11 @@ $(() => {
               <strong class="d-block ">${userName}</strong>
               ${newTweet}
             </p>
+            <p class="small mr-2 timestamp">${Date($.now())}</p>
             <i class="fas fa-retweet" data-toggle="tooltip" data-placement="top" title="retweet"><span class="mr-2"></span></i>
-            <i class="fas fa-heart" data-toggle="tooltip" data-placement="top" title="like"><span class="ml-1">0</span></i>
-          </div>`
+            <i class="fas fa-heart" data-toggle="tooltip" data-placement="top" title="like"><span class="mr-2">0</span></i>
+            <i class="fas fa-trash"></i>
+            </div>`
         );
       }
     console.log(newTweet)
@@ -71,5 +74,15 @@ $(() => {
   $('#recentTweets').on('click', '.media .fa-retweet', function() {
     const retweet = $(this).find('.fa-retweet');
     $(this).toggleClass('text-success');
+  });
+});
+
+
+$(() => {
+  $('#recentTweets').on('click', '.media .fa-trash', function() {
+    const tweet = $(this).closest('.media');
+    $(tweet).fadeOut( "slow", function() {
+      // Animation complete.
+    });
   });
 });
