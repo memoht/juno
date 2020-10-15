@@ -5,11 +5,19 @@ const fp= flatpickr("#date-picker", {
 });
 
 const app = {};
-// apiKey = 'afrud3GRuDZkeJflvjMdez2cmcd4gBD9cXQWakst'
-app.key = 'DEMO_KEY';
-roverName = "Curiosity";
 dateCode = "2015-10-1";
+app.key = 'afrud3GRuDZkeJflvjMdez2cmcd4gBD9cXQWakst';
+// roverName = "Curiosity";
+
 // example: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY
+
+app.init = () => {
+  app.getImages();
+};
+
+$(function () {
+  app.init();
+});
 
 $(() => {
   $('#search-form').on('submit', function(e) {
@@ -20,14 +28,26 @@ $(() => {
       $('#date-picker').val('');
       }
     console.log(`What did I get ${dateCode} and ${roverName}`)
-    app.getImages(dateCode);
+    app.getImages(roverName);
   });
 });
 
+app.getImages = roverName => {
+  $.ajax({
+    url: `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?`,
+    method: 'GET',
+    dataType: 'json',
+    data: {
+      earth_date: dateCode,
+      api_key: app.key,
+    }
+  }).then(gallery => {
+    app.showImages(gallery.data);
+  });
+};
 
-
-app.showImages = images => {
-  images.forEach(image => {
+app.showImages = gallery => {
+  gallery.forEach(image => {
     const imgCard = `
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
@@ -42,25 +62,3 @@ app.showImages = images => {
     $('.gallery').append(imgCard);
   });
 }
-
-app.getImages = () => {
-  $.ajax({
-    url: 'https://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/photos?',
-    method: 'GET',
-    dataType: 'json',
-    data: {
-      api_key: app.key,
-      earth_date: dateCode
-    }
-  }).then(result => {
-    app.showImages(result);
-  });
-};
-
-app.init = () => {
-  app.getImages();
-};
-
-$(function () {
-  app.init();
-});
